@@ -19,8 +19,8 @@ services:
       MW_DB_PASSWORD: ${DB_PASSWORD:-root}
       MW_DB_SERVER: db:3306
       MW_DB_NAME: ${DB_NAME:-my_wiki}
-      MW_SITE_SERVER: ${SITE_URL:-https://localhost}
-      MW_SITE_NAME: ${MW_SITE_NAME:-My Wiki}
+      MW_SITE_SERVER: ${MW_SITE_SERVER:-https://localhost}
+      MW_SITE_NAME: ${MW_SITE_NAME:-Progressive Victory Wiki}
       MW_SITE_LANG: en
 
   db:
