@@ -1,2 +1,3 @@
 /nginx/certs/*
 !/nginx/certs/hold
+.env
