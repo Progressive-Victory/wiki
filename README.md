@@ -1,17 +1,19 @@
-# mediawiki-nginx-docker
+# Progressive Victory Wiki
 
 ## Setup
 
-1. `mkdir certs && openssl req -x509 -newkey rsa:4096 -keyout nginx/certs/key.pem -out nginx/certs/cert.pem -days 365 -nodes -subj '/CN=localhost'`
+1. Run `mkdir certs && openssl req -x509 -newkey rsa:4096 -keyout nginx/certs/key.pem -out nginx/certs/cert.pem -days 365 -nodes -subj '/CN=localhost'`
+2. Comment out `LocalSettings.php` in the compose file
+3. Run `cp .env.example .env`
+4. Run `docker-compose up -d`
+5. Visit `https://localhost` and follow the setup instructions
+6. Make sure the installation process references Wikimedia 3.9
+7. You should install all of the extensions to match the `LocalSettings.php` file provided
+8. Match the `.env` variables during setup, such as `db` for the host - the provided `LocalSettings.php` will read those
 
 ## Run
 
-1. Comment out `LocalSettings.php` in the compose file
-2. Run `docker-compose up -d`
-3. Visit `https://localhost` and follow the setup instructions.
-3.a. Make sure the installation process references Wikimedia 3.9.
-3.b. You should install all of the extensions to match the `LocalSettings.php` file provided.
-3.c. Match the `.env` variables during setup, such as `db` for the host - the provided `LocalSettings.php` will read those.
+* Run `docker-compose up -d`
 
 ## Troubleshooting
 
