@@ -7,7 +7,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - mediawiki_data:/var/www/html
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./config/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./config/ExtraLocalSettings.php:/var/www/html/ExtraLocalSettings.php
       - ./docker-entrypoint.sh:/docker-entrypoint.sh
       - ./assets:/var/www/html/resources/assets
     env_file:

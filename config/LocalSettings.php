@@ -38,13 +38,13 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [
-	'1x' => "$wgResourceBasePath/resources/assets/logo.svg",
+	'1x' => "$wgResourceBasePath/resources/assets/images/logo.svg",
 	'wordmark' => [
-		"src" => "$wgResourceBasePath/resources/assets/wordmark.svg",
+		"src" => "$wgResourceBasePath/resources/assets/images/wordmark.svg",
 		"width" => 119,
 		"height" => 18,
 	],
-	'icon' => "$wgResourceBasePath/resources/assets/logo-icon.svg",
+	'icon' => "$wgResourceBasePath/resources/assets/images/icon.svg",
 ];
 
 ## UPO means: this is also a user preference option
@@ -120,7 +120,7 @@ $wgUpgradeKey = "414b8568566b3d5f";
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
 $wgRightsText = "Creative Commons Attribution-ShareAlike";
-$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by-sa.png";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/ccheart.svg";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
@@ -175,4 +175,5 @@ wfLoadExtension( 'WikiEditor' );
 # End of automatically generated settings.
 # Add more configuration options below.
 
-$wgShowExceptionDetails = true;
+# Load extra settings
+require 'ExtraLocalSettings.php';
