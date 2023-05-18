@@ -6,26 +6,34 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - mediawiki_data:/var/www/html
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      #- mediawiki_data:/var/www/html
+      #- ./LocalSettings.php:/var/www/html/LocalSettings.php
       - ./docker-entrypoint.sh:/docker-entrypoint.sh
+    env_file:
+      - .env
     environment:
-      MW_DB_TYPE: mysql
-      MW_DB_USER: ${DB_USER:-root}
-      MW_DB_PASSWORD: ${DB_PASSWORD:-root}
-      MW_DB_SERVER: db:3306
-      MW_DB_NAME: ${DB_NAME:-my_wiki}
+      DB_SERVER: ${DB_SERVER:-db}
+      DB_NAME: ${DB_NAME:-my_wiki}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-MyStrongPassword123!}
+      DB_PORT: ${DB_PORT:-5432}
       MW_SITE_SERVER: ${SITE_URL:-https://localhost}
       MW_SITE_NAME: ${MW_SITE_NAME:-My Wiki}
       MW_SITE_LANG: en
+    depends_on:
+      - db
+      #- maintenance
 
   db:
-    image: mysql:5.7
+    image: postgres:13
     volumes:
-      - db_data:/var/lib/mysql
+      - postgres_data:/var/lib/postgresql/data
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-      MYSQL_DATABASE: ${DB_NAME:-my_wiki}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-MyStrongPassword123!}
+      POSTGRES_DB: ${DB_NAME:-my_wiki}
+    ports:
+      - "${DB_PORT:-5432}:${DB_PORT:-5432}"
 
   nginx:
     image: nginx:latest
@@ -38,6 +46,20 @@ services:
     depends_on:
       - mediawiki
 
+#  maintenance:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    volumes:
+#      - mediawiki_data:/var/www/html
+#      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+#      - ./docker-entrypoint.sh:/docker-entrypoint.sh
+#    env_file:
+#      - .env
+#    entrypoint: /docker-entrypoint.sh
+#    stdin_open: true
+#    tty: true
+
 volumes:
-  mediawiki_data:
-  db_data:
+  #mediawiki_data:
+  postgres_data:

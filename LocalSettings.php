@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = $_SERVER['MW_SITE_NAME'] ?? "My Wiki";
-$wgMetaNamespace = $_SERVER['MW_META_NAMESPACE'] ?? "Progressive_Wiki";
+$wgSitename = getenv('MW_SITE_NAME') ?? "My Wiki";
+$wgMetaNamespace = getenv('MW_META_NAMESPACE') ?? "Progressive_Wiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -30,7 +30,7 @@ $wgMetaNamespace = $_SERVER['MW_META_NAMESPACE'] ?? "Progressive_Wiki";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = $_SERVER['MW_SITE_SERVER'] ?? "https://localhost";
+$wgServer = getenv('MW_SITE_SERVER') ?? "https://localhost";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -54,12 +54,18 @@ $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
+# Print the environment variables
+echo "DB_SERVER: " . getenv('DB_SERVER') . PHP_EOL;
+echo "DB_NAME: " . getenv('DB_NAME') . PHP_EOL;
+echo "DB_USER: " . getenv('DB_USER') . PHP_EOL;
+echo "DB_PASSWORD: " . getenv('DB_PASSWORD') . PHP_EOL;
+
 ## Database settings
-$wgDBtype = "mysql";
-$wgDBserver = $_SERVER['MW_DB_SERVER'] ?? "db";
-$wgDBname = $_SERVER['MW_DB_NAME'] ?? "my_wiki";
-$wgDBuser = $_SERVER['MW_DB_USER'] ?? "root";
-$wgDBpassword = $_SERVER['MW_DB_PASSWORD'] ?? "root";
+$wgDBtype = "postgres";
+$wgDBserver = getenv('DB_SERVER') ?? "db";
+$wgDBname = getenv('DB_NAME') ?? "my_wiki";
+$wgDBuser = getenv('DB_USER') ?? "postgres";
+$wgDBpassword = getenv('DB_PASSWORD') ?? "MyStrongPassword123!";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -170,3 +176,4 @@ wfLoadExtension( 'WikiEditor' );
 # End of automatically generated settings.
 # Add more configuration options below.
 
+$wgShowExceptionDetails = true;

@@ -6,4 +6,8 @@
 
 ## Run
 
-1. `docker-compose up -d`
+1. Make sure `./LocalSettings.php` is commented out in the `docker-compose.yml` file
+2. Run `docker-compose up -d`
+3. Visit `https://localhost/`
+4. Follow the instructions to install MediaWiki
+5. Uncomment `./LocalSettings.php` in the `docker-compose.yml` file
