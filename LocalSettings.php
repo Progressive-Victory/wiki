@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = getenv('MW_SITE_NAME') ?? "My Wiki";
-$wgMetaNamespace = getenv('MW_META_NAMESPACE') ?? "Progressive_Wiki";
+$wgSitename = getenv('MW_SITE_NAME') ?? "Progressive Victory Wiki";
+$wgMetaNamespace = getenv('MW_META_NAMESPACE') ?? "Progressive_Victory_Wiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
