@@ -6,4 +6,8 @@
 
 ## Run
 
-1. `docker-compose up -d`
+1. Comment out `LocalSettings.php` in the compose file
+2. Run `docker-compose up -d`
+3. Visit `https://localhost` and follow the setup instructions.
+3.a. You should install all of the extenstions to match the `LocalSettings.php` file provided.
+3.b. Match the `.env` variables, such as `db` for the host.

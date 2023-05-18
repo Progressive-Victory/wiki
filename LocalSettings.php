@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = $_SERVER['MW_SITE_NAME'] ?? "My Wiki";
-$wgMetaNamespace = $_SERVER['MW_META_NAMESPACE'] ?? "Progressive_Wiki";
+$wgSitename = getenv('MW_SITE_NAME') ?? "My Wiki";
+$wgMetaNamespace = getenv('MW_META_NAMESPACE') ?? "Progressive_Wiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -30,7 +30,7 @@ $wgMetaNamespace = $_SERVER['MW_META_NAMESPACE'] ?? "Progressive_Wiki";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = $_SERVER['MW_SITE_SERVER'] ?? "https://localhost";
+$wgServer = getenv('MW_SITE_SERVER') ?? "https://localhost";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -38,8 +38,13 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [
-	'1x' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
-	'icon' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
+	'1x' => "$wgResourceBasePath/resources/assets/logo.svg",
+	'wordmark' => [
+		"src" => "$wgResourceBasePath/resources/assets/wordmark.svg",
+		"width" => 119,
+		"height" => 18,
+	],
+	'icon' => "$wgResourceBasePath/resources/assets/logo-icon.svg",
 ];
 
 ## UPO means: this is also a user preference option
@@ -56,10 +61,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = $_SERVER['MW_DB_SERVER'] ?? "db";
-$wgDBname = $_SERVER['MW_DB_NAME'] ?? "my_wiki";
-$wgDBuser = $_SERVER['MW_DB_USER'] ?? "root";
-$wgDBpassword = $_SERVER['MW_DB_PASSWORD'] ?? "root";
+$wgDBserver = getenv('DB_SERVER') ?? "db";
+$wgDBname = getenv('DB_NAME') ?? "my_wiki";
+$wgDBuser = getenv('DB_USER') ?? "root";
+$wgDBpassword = getenv('DB_PASSWORD') ?? "root";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -170,3 +175,4 @@ wfLoadExtension( 'WikiEditor' );
 # End of automatically generated settings.
 # Add more configuration options below.
 
+$wgShowExceptionDetails = true;

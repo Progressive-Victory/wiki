@@ -9,6 +9,9 @@ services:
       - mediawiki_data:/var/www/html
       - ./LocalSettings.php:/var/www/html/LocalSettings.php
       - ./docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./assets:/var/www/html/resources/assets
+    env_file:
+      - .env
     environment:
       MW_DB_TYPE: mysql
       MW_DB_USER: ${DB_USER:-root}
