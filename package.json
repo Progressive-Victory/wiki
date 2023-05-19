@@ -1,0 +1,24 @@
+{
+	"name": "pvwiki",
+	"version": "1.0.0",
+	"description": "Mediawiki instance for the Progressive Victory PAC",
+	"repository": "git@github.com:Progressive-Victory/wiki.git",
+	"author": "okami@progress.win",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"start": "docker-compose up -d",
+		"logs": "docker-compose logs -f",
+		"build": "docker-compose build",
+		"rebuild": "docker-compose up -d --build",
+		"test": "mocha",
+		"test:local": "yarn start && wait-on https://localhost && yarn test"
+	},
+	"devDependencies": {
+		"axios": "^1.4.0",
+		"chai": "^4.3.7",
+		"dotenv": "^16.0.3",
+		"mocha": "^10.2.0",
+		"wait-on": "^7.0.1"
+	}
+}

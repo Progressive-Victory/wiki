@@ -1,3 +1,4 @@
 /nginx/certs/*
 !/nginx/certs/hold
 .env
+node_modules
