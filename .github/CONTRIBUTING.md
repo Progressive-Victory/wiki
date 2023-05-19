@@ -8,7 +8,7 @@ To get started, you should:
 
 1. Fork the repository on GitHub.
 2. Clone your forked repository to your local machine.
-3. Install the necessary dependencies by running `npm install`.
+3. Install the necessary dependencies by running `yarn install`.
 4. Make your changes and test them locally.
 5. Push your changes to your forked repository.
 6. Create a pull request on the main repository.

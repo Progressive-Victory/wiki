@@ -25,7 +25,7 @@
 
 ## Environments
 
-* The dev environment you can visit on http://137.184.42.110:81/ - It would be nice to have this deployed on the proper domain or Vercel but we would have to figure out how to run the maintenance scripts properly.
-* The prod environment you can visit on https://wiki.progressivevictory.live
+* The dev environment you can visit on [http://137.184.42.110:81](http://137.184.42.110:81) - It would be nice to have this deployed on the proper domain or Vercel but we would have to figure out how to run the maintenance scripts properly.
+* The prod environment you can visit on [https://wiki.progressivevictory.win](https://wiki.progressivevictory.win).
 
 When you deploy to the `main` branch, it will automatically deploy to the dev environment. Similarly, when you deploy to the `prod` branch, it will automatically deploy to the prod environment.
