@@ -16,7 +16,7 @@ jobs:
     - name: SSH into remote server and deploy
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secret.PROD_IP }}
+        host: ${{ secrets.PROD_IP }}
         username: ${{ secrets.PROD_SSH_USERNAME }}
         password: ${{ secrets.PROD_SSH_PASSWORD }}
         port: ${{ secrets.PROD_SSH_PORT }}
