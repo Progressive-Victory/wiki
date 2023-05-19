@@ -1,0 +1,26 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: SSH into remote server and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secret.PROD_IP }}
+        username: ${{ secrets.PROD_SSH_USERNAME }}
+        password: ${{ secrets.PROD_SSH_PASSWORD }}
+        port: ${{ secrets.PROD_SSH_PORT }}
+        script: |
+          cd wiki
+          git pull
+          docker-compose up -d

@@ -1,0 +1,26 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: SSH into remote server and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secret.DEV_IP }}
+        username: ${{ secrets.DEV_SSH_USERNAME }}
+        password: ${{ secrets.DEV_SSH_PASSWORD }}
+        port: ${{ secrets.DEV_SSH_PORT }}
+        script: |
+          cd wiki
+          git pull
+          docker-compose up -d
