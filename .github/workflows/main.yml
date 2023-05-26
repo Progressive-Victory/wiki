@@ -22,5 +22,5 @@ jobs:
         port: ${{ secrets.DEV_SSH_PORT }}
         script: |
           cd wiki
-          git pull
+          git fetch --all && git reset --hard origin/main
           docker-compose up -d
