@@ -22,5 +22,7 @@ jobs:
         port: ${{ secrets.PROD_SSH_PORT }}
         script: |
           cd wiki
-          git fetch --all && git reset --hard origin/prod
-          docker-compose up -d
+          git fetch --all
+          git reset --hard origin/prod
+          docker compose down
+          docker-compose up -d --build
