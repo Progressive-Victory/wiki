@@ -36,7 +36,7 @@ echo "Listing files in $TARGET_DIR: $(ls $TARGET_DIR)"
 # Download and extract the extension archive
 for i in $(seq 1 $MAX_RETRIES); do
     echo "Downloading $EXTENSION_NAME extension (attempt $i)..."
-    curl -LOk --retry $MAX_RETRIES --retry-delay $RETRY_INTERVAL -o $EXTENSION_FILE $EXTENSION_URL
+    curl -Lk --retry $MAX_RETRIES --retry-delay $RETRY_INTERVAL -o $EXTENSION_FILE $EXTENSION_URL
     if [ $? -eq 0 ]; then
         echo "File should have been downloaded to $EXTENSION_FILE"
         echo "Extracting $EXTENSION_NAME extension..."
