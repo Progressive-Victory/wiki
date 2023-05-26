@@ -1,0 +1,70 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"requireConfigFile": false
+	},
+	"env": {
+		"node": true,
+		"es2020": true,
+		"browser": true
+	},
+	"extends": ["eslint:recommended"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"no-tabs": "off",
+		"class-methods-use-this": 0,
+		"no-plusplus": 0,
+		"max-len": [
+			"error",
+			{
+				"code": 160,
+				"ignoreStrings": true,
+				"ignoreComments": true,
+				"ignoreTemplateLiterals": true
+			}
+		],
+		"no-param-reassign": 0,
+		"no-await-in-loop": "off",
+		"max-classes-per-file": "off",
+		"no-underscore-dangle": "off",
+		"no-continue": "off",
+		"comma-dangle": ["error", "never"],
+		"no-multi-assign": "off",
+		"brace-style": ["error", "stroustrup"],
+		"curly": ["error", "multi-line"],
+		"no-extend-native": "off",
+		"no-restricted-syntax": "off",
+		"import/extensions": "off",
+		"import/no-unresolved": "off",
+		"no-unused-vars": "off",
+		"no-nested-ternary": "off",
+		"no-promise-executor-return": "off",
+		"import/prefer-default-export": "off",
+		"global-require": "off",
+		"import/no-dynamic-require": "off",
+		"no-prototype-builtins": "off",
+		"no-bitwise": "off",
+		"linebreak-style": ["error", "unix"],
+		"object-curly-newline": [
+			"error",
+			{
+				"ObjectExpression": {
+					"multiline": true,
+					"minProperties": 3
+				},
+				"ObjectPattern": {
+					"multiline": true,
+					"minProperties": 3
+				},
+				"ImportDeclaration": {
+					"multiline": true,
+					"minProperties": 3
+				},
+				"ExportDeclaration": {
+					"multiline": true
+				}
+			}
+		],
+		"object-curly-spacing": ["error", "always"]
+	}
+}

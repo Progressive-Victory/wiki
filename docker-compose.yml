@@ -2,6 +2,7 @@ version: '3'
 
 services:
   mediawiki:
+    tty: true
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +10,8 @@ services:
       - mediawiki_data:/var/www/html
       - ./config/LocalSettings.php:/var/www/html/LocalSettings.php
       - ./config/ExtraLocalSettings.php:/var/www/html/ExtraLocalSettings.php
-      - ./docker-entrypoint.sh:/docker-entrypoint.sh
       - ./assets:/var/www/html/resources/assets
+      - extensions_data:/var/www/html/extensions
     env_file:
       - .env
     environment:
@@ -45,3 +46,4 @@ services:
 volumes:
   mediawiki_data:
   db_data:
+  extensions_data:

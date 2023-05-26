@@ -12,12 +12,14 @@
 		"build": "docker-compose build",
 		"rebuild": "docker-compose up -d --build",
 		"test": "mocha",
-		"test:local": "yarn start && wait-on https://localhost && yarn test"
+		"test:local": "yarn start && wait-on https://localhost && yarn test",
+		"bash": "docker-compose exec mediawiki bash"
 	},
 	"devDependencies": {
 		"axios": "^1.4.0",
 		"chai": "^4.3.7",
 		"dotenv": "^16.0.3",
+		"eslint": "^8.41.0",
 		"mocha": "^10.2.0",
 		"wait-on": "^7.0.1"
 	}

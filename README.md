@@ -18,6 +18,7 @@
 ## Troubleshooting
 
 * If you see an error such as `Warning: session_name(): Cannot change session name when headers already sent in`, this means `LocalSettings.php` has a typo somewhere. Try undoing your last change.
+* You can view installed extensions by visiting [https://localhost/index.php/Special:Version](https://localhost/index.php/Special:Version).
 
 ## Making Changes
 

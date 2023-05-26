@@ -11,6 +11,11 @@ $wgGroupPermissions['*']['createaccount'] = true;
 $wgGroupPermissions['*']['edit'] = false;
 $wgGroupPermissions['*']['read'] = true;
 
+$wgNamespacePermissionLockdown[NS_USER]['*'] = ['sysop'];
+$wgNamespacePermissionLockdown[NS_USER]['read'] = ['*'];
+$wgNamespacePermissionLockdown[NS_USER_TALK]['*'] = ['sysop'];
+$wgNamespacePermissionLockdown[NS_USER_TALK]['read'] = ['*'];
+
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
