@@ -195,7 +195,6 @@ wfLoadExtension( 'ArticleCreationWorkflow' );
 wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'PageViewInfo' );
 wfLoadExtension( 'SandboxLink' );
-wfLoadExtension( 'WikiLove' );
 wfLoadExtension( 'wikihiero' );
 wfLoadExtension( 'Babel' );
 wfLoadExtension( 'RSS' );
@@ -221,6 +220,7 @@ require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 # wfLoadExtension( 'AdvancedSearch' );
 # wfLoadExtension( 'Score' );
 # wfLoadExtension( 'Disambiguator' );
+# wfLoadExtension( 'WikiLove' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
