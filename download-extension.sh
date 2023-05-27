@@ -30,9 +30,6 @@ MAX_RETRIES=5
 # Define the retry interval in seconds
 RETRY_INTERVAL=5
 
-echo "Current working directory: $(pwd)"
-echo "Listing files in $TARGET_DIR: $(ls $TARGET_DIR)"
-
 # Download and extract the extension archive
 for i in $(seq 1 $MAX_RETRIES); do
     echo "Downloading $EXTENSION_NAME extension (attempt $i)..."

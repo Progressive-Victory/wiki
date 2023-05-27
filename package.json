@@ -13,7 +13,8 @@
 		"rebuild": "docker-compose up -d --build",
 		"test": "mocha",
 		"test:local": "yarn start && wait-on https://localhost && yarn test",
-		"bash": "docker-compose exec mediawiki bash"
+		"bash": "docker-compose exec mediawiki bash",
+		"restart": "docker-compose down && docker-compose up -d --build && docker-compose logs -f"
 	},
 	"devDependencies": {
 		"axios": "^1.4.0",

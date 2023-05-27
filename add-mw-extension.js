@@ -94,6 +94,7 @@ const downloadFile = async (url, path, retryCount = 0) => {
 				const downloadPath = EXTENSION_API.replace('%s', extension_name);
 				console.log(`[${extension_name}] Get information on the extension - ${downloadPath}`);
 				const data = await getJSON(downloadPath);
+
 				if ("extensions" in data.query.extdistbranches) {
 					let url;
 					if (extension_version in data.query.extdistbranches.extensions[extension_name]) {
@@ -103,7 +104,7 @@ const downloadFile = async (url, path, retryCount = 0) => {
 						url = data.query.extdistbranches.extensions[extension_name].master;
 					}
 
-					console.log(`[${extension_name}] Download extension`);
+					console.log(`[${extension_name}] Downloading extension - ${url}`);
 					const filename = `/tmp/${extension_name}.tgz`;
 					await downloadFile(url, filename);
 

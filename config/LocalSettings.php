@@ -170,59 +170,57 @@ wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
-
-# wfLoadExtension( 'UploadWizard' );
+wfLoadExtension( 'UploadWizard' );
 wfLoadExtension( 'TitleKey' );
 wfLoadExtension( 'TitleBlacklist' );
-# wfLoadExtension( 'TimedMediaHandler' );
-#wfLoadExtension( 'wikihiero' );
+wfLoadExtension( 'TimedMediaHandler' );
 wfLoadExtension( 'Math' );
+wfLoadExtension( 'Widgets' );
+wfLoadExtension( 'TemplateStyles' );
+wfLoadExtension( 'PageImages' );
+wfLoadExtension( 'JsonConfig' );
+wfLoadExtension( 'TemplateWizard' );
+wfLoadExtension( 'Lockdown' );
+wfLoadExtension( 'CookieWarning' );
+wfLoadExtension( 'CleanChanges' );
+wfLoadExtension( 'LocalisationUpdate' );
+wfLoadExtension( 'UniversalLanguageSelector' );
+wfLoadExtension( 'GettingStarted' );
+wfLoadExtension( 'DismissableSiteNotice' );
+wfLoadExtension( 'FileExporter' );
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'Poem' );
+wfLoadExtension( 'VipsScaler' );
+wfLoadExtension( 'ArticleCreationWorkflow' );
+wfLoadExtension( 'MultimediaViewer' );
+wfLoadExtension( 'PageViewInfo' );
+wfLoadExtension( 'SandboxLink' );
+wfLoadExtension( 'WikiLove' );
+wfLoadExtension( 'wikihiero' );
+wfLoadExtension( 'Babel' );
+wfLoadExtension( 'RSS' );
+wfLoadExtension( 'TorBlock' );
+wfLoadExtension( 'cldr' );
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'CharInsert' );
+
+require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
+
 # wfLoadExtension( 'timeline' );
 # wfLoadExtension( 'Echo' );
-# wfLoadExtension( 'MobileFrontend' );
 # wfLoadExtension( 'Thanks' );
-#wfLoadExtension( 'Babel' );
-# wfLoadExtension( 'GeoData' );
-#wfLoadExtension( 'RSS' );
-#wfLoadExtension( 'TorBlock' );
-#wfLoadExtension( 'ConfirmEdit' );
-#wfLoadExtension( 'cldr' );
-#wfLoadExtension( 'CleanChanges' );
-#wfLoadExtension( 'LocalisationUpdate' );
-#wfLoadExtension( 'Translate' );
-#wfLoadExtension( 'UniversalLanguageSelector' );
-#wfLoadExtension( 'Widgets' );
-#wfLoadExtension( 'TemplateStyles' );
-#wfLoadExtension( 'CiteThisPage' );
 # wfLoadExtension( 'ContentTranslation' );
 # wfLoadExtension( 'TemplateSandbox' );
-#wfLoadExtension( 'CodeEditor' );
 # wfLoadExtension( 'CodeMirror' );
-#wfLoadExtension( 'CategoryTree' );
-#wfLoadExtension( 'CharInsert' );
 # wfLoadExtension( 'Kartographer' );
-#wfLoadExtension( 'LabeledSectionTransclusion' );
-#wfLoadExtension( 'Poem' );
-# wfLoadExtension( 'Score' );
-#wfLoadExtension( 'VipsScaler' );
-#wfLoadExtension( 'GettingStarted' );
-wfLoadExtension( 'PageImages' );
-# wfLoadExtension( 'AdvancedSearch' );
-#wfLoadExtension( 'ArticleCreationWorkflow' );
-# wfLoadExtension( 'Disambiguator' );
-#wfLoadExtension( 'DismissableSiteNotice' );
-#wfLoadExtension( 'FileExporter' );
-# wfLoadExtension( 'JsonConfig' );
-#wfLoadExtension( 'MultimediaViewer' );
-#wfLoadExtension( 'PageViewInfo' );
-#fLoadExtension( 'SandboxLink' );
-# wfLoadExtension( 'TemplateWizard' );
-#wfLoadExtension( 'WikiLove' );
-
-# Required for MVP
-wfLoadExtension( 'Lockdown' );
+# Don't seem to work for now
+# wfLoadExtension( 'Translate' ); # Causes DB Error
 # wfLoadExtension( 'Youtube' );
-wfLoadExtension( 'CookieWarning' );
+# wfLoadExtension( 'MobileFrontend' );
+# wfLoadExtension( 'GeoData' );
+# wfLoadExtension( 'AdvancedSearch' );
+# wfLoadExtension( 'Score' );
+# wfLoadExtension( 'Disambiguator' );
 
 # End of automatically generated settings.
 # Add more configuration options below.

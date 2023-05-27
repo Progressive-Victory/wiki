@@ -4,10 +4,10 @@ FROM mediawiki:latest
 
 ENV WIKI_DIR /var/www/html
 
-# Install mariadb-client and curl
-RUN apt-get update \
-    && apt-get install -y mariadb-client curl \
-    && rm -rf /var/lib/apt/lists/*
+# Install SSH Client
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openssh-client && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
@@ -17,6 +17,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
 RUN apt-get update && apt-get install -y \
     nano \
     git \
+    curl \
     build-essential \
      # for Timeline ext
     fonts-freefont-ttf \
@@ -37,6 +38,11 @@ RUN apt-get update && apt-get install -y \
     # Requuired for VipsScaler
     libvips-tools \
     && rm -r /var/lib/apt/lists/*
+
+# Install mariadb-client
+RUN apt-get update \
+    && apt-get install -y mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY ./add-mw-extension.js /usr/local/bin/add-mw-extension
 RUN chmod a+x /usr/local/bin/add-mw-extension
