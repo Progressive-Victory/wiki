@@ -182,11 +182,10 @@ wfLoadExtension( 'JsonConfig' );
 wfLoadExtension( 'TemplateWizard' );
 wfLoadExtension( 'Lockdown' );
 wfLoadExtension( 'CookieWarning' );
+wfLoadExtension( 'DismissableSiteNotice' );
 wfLoadExtension( 'CleanChanges' );
 wfLoadExtension( 'LocalisationUpdate' );
 wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension( 'GettingStarted' );
-wfLoadExtension( 'DismissableSiteNotice' );
 wfLoadExtension( 'FileExporter' );
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension( 'Poem' );
@@ -221,6 +220,7 @@ require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 # wfLoadExtension( 'Score' );
 # wfLoadExtension( 'Disambiguator' );
 # wfLoadExtension( 'WikiLove' );
+# wfLoadExtension( 'GettingStarted' ); # Causes json_decode() warning on index page
 
 # End of automatically generated settings.
 # Add more configuration options below.
