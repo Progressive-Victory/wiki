@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y \
     # Required for PagedTiffHandler
     exiv2 \
     libtiff-tools \
-    # Requuired for VipsScaler
+    # Required for VipsScaler
     libvips-tools \
     && rm -r /var/lib/apt/lists/*
 

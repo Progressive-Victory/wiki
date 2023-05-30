@@ -1,11 +1,16 @@
 # Progressive Victory Wiki
 
+## Installation
+
+1. Install and run [Docker](https://docs.docker.com/desktop/install/windows-install/)
+2. Install [yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+
 ## Setup
 
 1. Run `mkdir certs && openssl req -x509 -newkey rsa:4096 -keyout nginx/certs/key.pem -out nginx/certs/cert.pem -days 365 -nodes -subj '/CN=localhost'`
 2. Comment out `LocalSettings.php` in the compose file
 3. Run `cp .env.example .env`
-4. Run `docker-compose up -d`
+4. Run `yarn start`
 5. Visit `https://localhost` and follow the setup instructions
 6. Make sure the installation process references Wikimedia 3.9
 7. You should install all of the extensions to match the `LocalSettings.php` file provided
@@ -23,10 +28,10 @@
 ## Making Changes
 
 * If you want to make changes, edit `ExtraLocalSettings.php`.
+* To restart, run `yarn restart`.
 
 ## Environments
 
-* The dev environment you can visit on [http://137.184.42.110:81](http://137.184.42.110:81) - It would be nice to have this deployed on the proper domain or Vercel but we would have to figure out how to run the maintenance scripts properly.
-* The prod environment you can visit on [https://wiki.progressivevictory.win](https://wiki.progressivevictory.win).
+* The environments exist, they just aren't public yet.
 
 When you deploy to the `main` branch, it will automatically deploy to the dev environment. Similarly, when you deploy to the `prod` branch, it will automatically deploy to the prod environment.

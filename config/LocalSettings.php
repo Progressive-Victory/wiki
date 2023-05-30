@@ -146,6 +146,7 @@ wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'CiteThisPage' );
 wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
@@ -154,13 +155,21 @@ wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'Math' );
 wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'Nuke' );
-wfLoadExtension( 'OATHAuth' );
 wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'PdfHandler' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ReplaceText' );
+wfLoadExtension( 'Lockdown' );
+wfLoadExtension( 'CookieWarning' );
+wfLoadExtension( 'DismissableSiteNotice' );
+wfLoadExtension( 'CleanChanges' );
+wfLoadExtension( 'LocalisationUpdate' );
+wfLoadExtension( 'UniversalLanguageSelector' );
+wfLoadExtension( 'FileExporter' );
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'OATHAuth' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SpamBlacklist' );
@@ -169,7 +178,6 @@ wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
-wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'UploadWizard' );
 wfLoadExtension( 'TitleKey' );
 wfLoadExtension( 'TitleBlacklist' );
@@ -180,14 +188,10 @@ wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'PageImages' );
 wfLoadExtension( 'JsonConfig' );
 wfLoadExtension( 'TemplateWizard' );
-wfLoadExtension( 'Lockdown' );
-wfLoadExtension( 'CookieWarning' );
-wfLoadExtension( 'DismissableSiteNotice' );
-wfLoadExtension( 'CleanChanges' );
-wfLoadExtension( 'LocalisationUpdate' );
-wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension( 'FileExporter' );
-wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'RSS' );
+wfLoadExtension( 'TorBlock' );
+wfLoadExtension( 'CategoryTree' );
+wfLoadExtension( 'CharInsert' );
 wfLoadExtension( 'Poem' );
 wfLoadExtension( 'VipsScaler' );
 wfLoadExtension( 'ArticleCreationWorkflow' );
@@ -195,12 +199,7 @@ wfLoadExtension( 'MultimediaViewer' );
 wfLoadExtension( 'PageViewInfo' );
 wfLoadExtension( 'SandboxLink' );
 wfLoadExtension( 'wikihiero' );
-wfLoadExtension( 'Babel' );
-wfLoadExtension( 'RSS' );
-wfLoadExtension( 'TorBlock' );
 wfLoadExtension( 'cldr' );
-wfLoadExtension( 'CategoryTree' );
-wfLoadExtension( 'CharInsert' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 
@@ -211,7 +210,6 @@ require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 # wfLoadExtension( 'TemplateSandbox' );
 # wfLoadExtension( 'CodeMirror' );
 # wfLoadExtension( 'Kartographer' );
-# Don't seem to work for now
 # wfLoadExtension( 'Translate' ); # Causes DB Error
 # wfLoadExtension( 'Youtube' );
 # wfLoadExtension( 'MobileFrontend' );
@@ -221,6 +219,7 @@ require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 # wfLoadExtension( 'Disambiguator' );
 # wfLoadExtension( 'WikiLove' );
 # wfLoadExtension( 'GettingStarted' ); # Causes json_decode() warning on index page
+# wfLoadExtension( 'Babel' ); # Causes DB error after logging in
 
 # End of automatically generated settings.
 # Add more configuration options below.
