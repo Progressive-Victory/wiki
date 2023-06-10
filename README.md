@@ -7,7 +7,7 @@
 
 ## Setup
 
-1. Run `mkdir certs && openssl req -x509 -newkey rsa:4096 -keyout nginx/certs/key.pem -out nginx/certs/cert.pem -days 365 -nodes -subj '/CN=localhost'`
+1. Run `mkdir -p certs && openssl req -x509 -newkey rsa:4096 -keyout ./nginx/certs/key.pem -out ./nginx/certs/cert.pem -days 365 -nodes -subj '/CN=localhost'`
 2. Comment out `LocalSettings.php` in the compose file
 3. Run `cp .env.example .env`
 4. Run `yarn start`
