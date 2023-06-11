@@ -179,7 +179,6 @@ wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'UploadWizard' );
-wfLoadExtension( 'TitleKey' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'TimedMediaHandler' );
 wfLoadExtension( 'Math' );
@@ -220,6 +219,7 @@ require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 # wfLoadExtension( 'WikiLove' );
 # wfLoadExtension( 'GettingStarted' ); # Causes json_decode() warning on index page
 # wfLoadExtension( 'Babel' ); # Causes DB error after logging in
+# wfLoadExtension( 'TitleKey' ); # Causes DB error when searching
 
 # End of automatically generated settings.
 # Add more configuration options below.
