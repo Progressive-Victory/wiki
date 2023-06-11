@@ -120,7 +120,7 @@ $wgUpgradeKey = "414b8568566b3d5f";
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
 $wgRightsUrl = "https://creativecommons.org/licenses/by-sa/4.0/";
 $wgRightsText = "Creative Commons Attribution-ShareAlike";
-$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/ccheart.svg";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/images/ccheart.svg";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";

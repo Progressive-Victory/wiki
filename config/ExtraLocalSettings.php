@@ -25,3 +25,16 @@ $wgNamespacePermissionLockdown[NS_USER_TALK]['read'] = ['*'];
 # $wgShowExceptionDetails = true;
 $wgFavicon = "$wgResourceBasePath/resources/assets/images/favicon.ico";
 $wgStylePath = "$wgResourceBasePath/assets/styles/index.css";
+
+$wgFooterIcons = [
+	"copyright" => [
+		"copyright" => [],
+	],
+	"poweredby" => [
+		"mediawiki" => [
+			"src" => "$wgResourceBasePath/resources/assets/images/mediawiki.svg",
+			"url" => "https://www.mediawiki.org/",
+			"alt" => "Powered by MediaWiki",
+		]
+	],
+];
