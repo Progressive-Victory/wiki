@@ -26,7 +26,8 @@
 
 * If you see an error such as `Warning: session_name(): Cannot change session name when headers already sent in`, this means `LocalSettings.php` has a typo somewhere. Try undoing your last change.
 * You can view installed extensions by visiting [https://localhost/index.php/Special:Version](https://localhost/index.php/Special:Version).
-* If you see an error along the lines of `exec /docker-entrypoint.sh: no such file or directory`, you need to change the line ending in the docker-compose.yml file to be `LF`.
+* If you see an error along the lines of `exec /docker-entrypoint.sh: no such file or directory`, you need to change the line ending in the `docker-entrypoint.sh` file to be `LF`. After you make this fix, verify with your text editor that it says the correct line ending. Afterwards, make sure to run `docker-compose build --no-cache`, then `yarn start`, so the changes will take effect. The line endings in this project should already be LF, but this is documented just in case they are not.
+* If you get any certificate warnings, ignore them. This is because the certificates we're using locally are self-signed.
 
 ## Making Changes
 
