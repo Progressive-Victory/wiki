@@ -28,6 +28,8 @@
 * You can view installed extensions by visiting [https://localhost/index.php/Special:Version](https://localhost/index.php/Special:Version).
 * If you see an error along the lines of `exec /docker-entrypoint.sh: no such file or directory`, you need to change the line ending in the `docker-entrypoint.sh` file to be `LF`. After you make this fix, verify with your text editor that it says the correct line ending. Afterwards, make sure to run `docker-compose build --no-cache`, then `yarn start`, so the changes will take effect. The line endings in this project should already be LF, but this is documented just in case they are not.
 * If you get any certificate warnings, ignore them. This is because the certificates we're using locally are self-signed.
+* If you get build errors, try again. Sometimes the build will just fail.
+* If you see an error like `nginx [emerg] 1#1: host not found "mediawiki" in /etc/nginx/conf.d/default`, that's simply because the Mediawiki container hasn't started yet. Just wait a few seconds and check again - assuming that container isn't exiting.
 
 ## Making Changes
 
