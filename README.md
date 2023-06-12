@@ -12,7 +12,7 @@
 3. Run `cp .env.example .env`
 4. Run `yarn start`
 5. Visit `https://localhost` and follow the setup instructions
-6. Make sure the installation process references Wikimedia 3.9. Also you can tick to install all of the extensions if you want.
+6. Make sure the installation process references Wikimedia 1.39.3. Also you can tick to install all of the extensions if you want.
 7. When going through the Mediawiki setup, it will ask you for a bunch of settings. For example, when it asks about connecting to the database, use `db` for the host. This is just to go through the setup and connect to the database so the install wizard can run the required setup commands. Afterwards, the provided `LocalSettings.php` file will read from the environment variables automatically. Do not use the one they give you.
 8. Undo the comment in docker-compose.yml, so `LocalSettings.php` will not be commented out
 9. Run `yarn restart`
