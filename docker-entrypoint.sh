@@ -22,12 +22,12 @@ add-mw-extension 1.39 /var/www/html Nuke Scribunto \
     OATHAuth Cite Gadgets AbuseFilter ParserFunctions SyntaxHighlight_GeSHi SpamBlacklist InputBox PdfHandler WikiEditor ImageMap \
     CookieWarning
 
-download-extension Lockdown https://extdist.wmflabs.org/dist/extensions/Lockdown-REL1_39-12dd618.tar.gz
-download-extension TemplateSandbox https://extdist.wmflabs.org/dist/extensions/TemplateSandbox-REL1_39-ffbcd7f.tar.gz
-download-extension UploadWizard https://extdist.wmflabs.org/dist/extensions/UploadWizard-REL1_39-4f5053f.tar.gz
-download-extension TimedMediaHandler https://extdist.wmflabs.org/dist/extensions/TimedMediaHandler-REL1_39-54b0d2c.tar.gz
-download-extension JsonConfig https://extdist.wmflabs.org/dist/extensions/JsonConfig-REL1_39-c80430f.tar.gz
-download-extension TemplateWizard https://extdist.wmflabs.org/dist/extensions/TemplateWizard-REL1_39-c41edbf.tar.gz
+download-extension Lockdown REL1_39
+download-extension TemplateSandbox REL1_39
+download-extension UploadWizard REL1_39
+download-extension TimedMediaHandler REL1_39
+download-extension JsonConfig REL1_39
+download-extension TemplateWizard REL1_39
 
 if [ ! -d "/var/www/html/extensions/LabeledSectionTransclusion" ]; then
     git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git /var/www/html/extensions/LabeledSectionTransclusion
@@ -37,7 +37,19 @@ if [ ! -d "/var/www/html/extensions/SimpleEmbed" ]; then
     git clone https://github.com/Le-onardo/SimpleEmbed.git /var/www/html/extensions/SimpleEmbed
 fi
 
+if [ ! -d "/var/www/html/extensions/HTMLTags" ]; then
+    git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git /var/www/html/extensions/HTMLTags
+fi
+
 # TODO: https://www.mediawiki.org/wiki/Special:ExtensionDistributor/YouTube - this isn't downloading
 # download-extension Youtube https://extdist.wmflabs.org/dist/extensions/YouTube-REL1_39-28a05a9.tar.gz
+
+echo "Updating composer..."
+
+rm -rf vendor/*
+COMPOSER=composer.local.json /usr/local/bin/composer clear-cache
+COMPOSER=composer.local.json /usr/local/bin/composer update && COMPOSER=composer.local.json /usr/local/bin/composer install
+
+echo "Finished preparing mediawiki!"
 
 apache2-foreground "$@"

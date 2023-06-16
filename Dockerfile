@@ -1,6 +1,6 @@
 # Source: https://github.com/offspot/mediawiki-docker/blob/main/Dockerfile
 
-FROM mediawiki:latest
+FROM mediawiki:1.39.3
 
 ENV WIKI_DIR /var/www/html
 
@@ -18,10 +18,13 @@ RUN apt-get update && apt-get install -y \
     nano \
     git \
     curl \
+    wget \
+    jq \
     build-essential \
      # for Timeline ext
     fonts-freefont-ttf \
-    ttf-unifont \
+    # ttf-unifont \
+    fonts-unifont \
     # Required for Math renderer
     texlive \
     texlive-fonts-recommended \
@@ -44,6 +47,11 @@ RUN apt-get update \
     && apt-get install -y mariadb-client \
     && rm -rf /var/lib/apt/lists/*
 
+# Install composer, the PHP dependency manager
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php --version=2.5.8 --install-dir=/usr/local/bin --filename=composer \
+    && php -r "unlink('composer-setup.php');"
+
 COPY ./add-mw-extension.js /usr/local/bin/add-mw-extension
 RUN chmod a+x /usr/local/bin/add-mw-extension
 
@@ -52,5 +60,8 @@ RUN chmod a+x /usr/local/bin/download-extension
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
+
+COPY ./composer.json $WIKI_DIR/composer.local.json
+RUN chmod a+w $WIKI_DIR/composer.local.json
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

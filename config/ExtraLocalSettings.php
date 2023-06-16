@@ -22,7 +22,8 @@ $wgNamespacePermissionLockdown[NS_USER_TALK]['read'] = ['*'];
 // OPTIONAL: Enable VisualEditor's experimental code features
 #$wgDefaultUserOptions['visualeditor-enable-experimental'] = 1;
 
-# $wgShowExceptionDetails = true;
+$wgShowExceptionDetails = true;
+
 $wgFavicon = "$wgResourceBasePath/resources/assets/images/favicon.ico";
 $wgStylePath = "$wgResourceBasePath/assets/styles/index.css";
 
@@ -38,3 +39,41 @@ $wgFooterIcons = [
 		]
 	],
 ];
+
+# Enable Bootstrap by default on all styles
+$wgHooks['SetupAfterCache'][] = function(){
+	\Bootstrap\BootstrapManager::getInstance()->addAllBootstrapModules();
+	return true;
+};
+
+$wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$stripState ){
+	$parser->getOutput()->addModuleStyles( ['ext.bootstrap.styles'] );
+	$parser->getOutput()->addModules( ['ext.bootstrap.scripts'] );
+	return true;
+};
+
+# HTMLTag Configuration
+$wgHTMLTagsAttributes['a'] = [ 'href', 'class' ];
+$wgHTMLTagsAttributes['p'] = [ 'class' ];
+$wgHTMLTagsAttributes['div'] = [ 'class' ];
+$wgHTMLTagsAttributes['span'] = [ 'class' ];
+$wgHTMLTagsAttributes['h1'] = [ 'class' ];
+$wgHTMLTagsAttributes['h2'] = [ 'class' ];
+$wgHTMLTagsAttributes['h3'] = [ 'class' ];
+$wgHTMLTagsAttributes['h4'] = [ 'class' ];
+$wgHTMLTagsAttributes['h5'] = [ 'class' ];
+$wgHTMLTagsAttributes['h6'] = [ 'class' ];
+$wgHTMLTagsAttributes['img'] = [ 'src', 'class' ];
+$wgHTMLTagsAttributes['ul'] = [ 'class' ];
+$wgHTMLTagsAttributes['ol'] = [ 'class' ];
+$wgHTMLTagsAttributes['li'] = [ 'class' ];
+$wgHTMLTagsAttributes['table'] = [ 'class' ];
+$wgHTMLTagsAttributes['tr'] = [ 'class' ];
+$wgHTMLTagsAttributes['td'] = [ 'class' ];
+$wgHTMLTagsAttributes['th'] = [ 'class' ];
+$wgHTMLTagsAttributes['thead'] = [ 'class' ];
+$wgHTMLTagsAttributes['tbody'] = [ 'class' ];
+$wgHTMLTagsAttributes['tfoot'] = [ 'class' ];
+$wgHTMLTagsAttributes['pre'] = [ 'class' ];
+$wgHTMLTagsAttributes['code'] = [ 'class' ];
+$wgHTMLTagsAttributes['footer'] = [ 'class' ];

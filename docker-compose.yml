@@ -12,6 +12,7 @@ services:
       - ./config/ExtraLocalSettings.php:/var/www/html/ExtraLocalSettings.php
       - ./assets:/var/www/html/resources/assets
       - extensions_data:/var/www/html/extensions
+      - ./composer.json:/var/www/html/composer.local.json
     env_file:
       - .env
     environment:

@@ -1,38 +1,40 @@
 #!/bin/bash
 
-#echo "Checking permissions..."
-#echo "Permissions for /var/www/html/extensions: $(ls -ld /var/www/html/extensions)"
-#echo "Permissions for this script: $(ls -l $0)"
-
-# Get the extension name and URL from command line arguments
 EXTENSION_NAME=$1
-EXTENSION_URL=$2
-
-# Define the file name of the extension archive
-EXTENSION_FILE="/var/www/html/extensions/$EXTENSION_NAME.tar.gz"
-
-# Define the target directory for the extracted files
-TARGET_DIR="/var/www/html/extensions"
+MW_VERSION=$2
 
 if [ -z "$EXTENSION_NAME" ]; then
     echo "No extension name provided."
     exit 1
 fi
 
+if [ -z "$MW_VERSION" ]; then
+    echo "No MediaWiki version provided."
+    exit 1
+fi
+
+TARGET_DIR="/var/www/html/extensions"
+
 if [ -d "$TARGET_DIR/$EXTENSION_NAME" ]; then
     echo "Extension $EXTENSION_NAME is already installed."
     exit 0
 fi
 
-# Define the maximum number of retries
+API_URL="https://www.mediawiki.org/w/api.php?action=query&list=extdistbranches&edbexts=$EXTENSION_NAME&format=json"
+EXTENSION_FILE="$TARGET_DIR/$EXTENSION_NAME.tar.gz"
 MAX_RETRIES=5
-
-# Define the retry interval in seconds
 RETRY_INTERVAL=5
 
-# Download and extract the extension archive
 for i in $(seq 1 $MAX_RETRIES); do
     echo "Downloading $EXTENSION_NAME extension (attempt $i)..."
+
+    EXTENSION_URL=$(curl -s $API_URL | jq -r ".query.extdistbranches.extensions.$EXTENSION_NAME.$MW_VERSION")
+
+    if [ "$EXTENSION_URL" == "null" ]; then
+        echo "Failed to fetch extension URL. Please ensure the extension name and MediaWiki version are correct."
+        exit 1
+    fi
+
     curl -Lk --retry $MAX_RETRIES --retry-delay $RETRY_INTERVAL -o $EXTENSION_FILE $EXTENSION_URL
     if [ $? -eq 0 ]; then
         echo "File should have been downloaded to $EXTENSION_FILE"

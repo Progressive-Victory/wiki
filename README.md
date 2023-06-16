@@ -30,6 +30,7 @@
 * If you get any certificate warnings, ignore them. This is because the certificates we're using locally are self-signed.
 * If you get build errors, try again. Sometimes the build will just fail.
 * If you see an error like `nginx [emerg] 1#1: host not found "mediawiki" in /etc/nginx/conf.d/default`, that's simply because the Mediawiki container hasn't started yet. Just wait a few seconds and check again - assuming that container isn't exiting.
+* If you see an error like this: `Fatal error: Declaration of MWCallbackStream::write($string) must be compatible with Psr\Http\Message\StreamInterface::write(string $string)`, try refreshing the page. I'm not sure what causes this currently.
 
 ## Making Changes
 
