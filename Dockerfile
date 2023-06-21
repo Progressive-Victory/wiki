@@ -61,7 +61,7 @@ RUN chmod a+x /usr/local/bin/download-extension
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
-COPY ./composer.json $WIKI_DIR/composer.local.json
-RUN chmod a+w $WIKI_DIR/composer.local.json
+COPY ./composer.json $WIKI_DIR/composer.json
+RUN chmod a+w $WIKI_DIR/composer.json
 
 ENTRYPOINT ["/docker-entrypoint.sh"]

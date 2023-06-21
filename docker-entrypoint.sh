@@ -47,8 +47,8 @@ fi
 echo "Updating composer..."
 
 rm -rf vendor/*
-COMPOSER=composer.local.json /usr/local/bin/composer clear-cache
-COMPOSER=composer.local.json /usr/local/bin/composer update && COMPOSER=composer.local.json /usr/local/bin/composer install
+/usr/local/bin/composer clear-cache
+/usr/local/bin/composer update && /usr/local/bin/composer install
 
 echo "Finished preparing mediawiki!"
 
