@@ -198,6 +198,8 @@ wfLoadExtension( 'BootstrapComponents' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 
+wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
+
 # wfLoadExtension( 'TorBlock' );
 
 # wfLoadExtension( 'timeline' );

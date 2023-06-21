@@ -48,7 +48,9 @@ echo "Updating composer..."
 
 rm -rf vendor/*
 /usr/local/bin/composer clear-cache
-/usr/local/bin/composer update && /usr/local/bin/composer install
+/usr/local/bin/composer update --no-dev # Running composer update leads into "SiteConfig contains 1 abstract..." error
+
+php /var/www/html/maintenance/update.php
 
 echo "Finished preparing mediawiki!"
 
