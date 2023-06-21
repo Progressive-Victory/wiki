@@ -77,3 +77,4 @@ $wgHTMLTagsAttributes['tfoot'] = [ 'class' ];
 $wgHTMLTagsAttributes['pre'] = [ 'class' ];
 $wgHTMLTagsAttributes['code'] = [ 'class' ];
 $wgHTMLTagsAttributes['footer'] = [ 'class' ];
+$wgHTMLTagsAttributes['img'] = [ 'src', 'class' ];
