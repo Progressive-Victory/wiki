@@ -95,7 +95,7 @@ $wgUseInstantCommons = true;
 $wgPingback = true;
 
 # Site language code, should be one of the list in ./includes/languages/data/Names.php
-$wgLanguageCode = "en-gb";
+$wgLanguageCode = "en";
 
 # Time zone
 $wgLocaltimezone = "UTC";
@@ -136,11 +136,7 @@ wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
-
-# Enabled extensions. Most of the extensions are enabled by adding
-# wfLoadExtension( 'ExtensionName' );
-# to LocalSettings.php. Check specific extension documentation for more details.
-# The following extensions were automatically enabled:
+# Enabled extensions.
 wfLoadExtension( 'AbuseFilter' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
@@ -195,6 +191,7 @@ wfLoadExtension( 'Bootstrap' );
 wfLoadExtension( 'HTMLTags' );
 wfLoadExtension( 'BootstrapComponents' );
 wfLoadExtension( 'YouTube' );
+wfLoadExtension( 'Discord' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 
@@ -221,9 +218,9 @@ wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
 # wfLoadExtension( 'GettingStarted' ); # Causes json_decode() warning on index page
 # wfLoadExtension( 'Babel' ); # Causes DB error after logging in
 # wfLoadExtension( 'TitleKey' ); # Causes DB error when searching
-
-# End of automatically generated settings.
-# Add more configuration options below.
+# wfLoadExtension( 'DiscordAuth' ); # Something about wrong php version. This might not be useful anyway since at a base level, it's just about login role matching?
+# wfLoadExtension( 'PluggableAuth' ); # Error when saving a page
+# wfLoadExtension( 'WSOAuth' ); # Can only be enabled with PluggableAuth
 
 # Load extra settings
 require 'ExtraLocalSettings.php';

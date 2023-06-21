@@ -80,3 +80,25 @@ $wgHTMLTagsAttributes['tfoot'] = [ 'class' ];
 $wgHTMLTagsAttributes['pre'] = [ 'class' ];
 $wgHTMLTagsAttributes['code'] = [ 'class' ];
 $wgHTMLTagsAttributes['footer'] = [ 'class' ];
+
+$wgDiscordWebhookURL = [ getenv('DISCORD_UPDATE_HOOK') ?? '' ];
+
+/*
+$wgOAuthCustomAuthProviders = ['discord' => \DiscordAuth\AuthenticationProvider\DiscordAuth::class];
+$wgPluggableAuth_EnableLocalLogin = true;
+$wgPluggableAuth_Config['discordauth'] = [
+    'plugin' => 'WSOAuth',
+    'data' => [
+        'type' => 'discord',
+        'uri' => 'https://discord.com/oauth2/authorize',
+        'clientId' => getenv('DISCORD_CLIENT_ID'),
+        'clientSecret' => getenv('DISCORD_CLIENT_SECRET'),
+        'redirectUri' => "$wgServer/index.php?title=Special:PluggableAuthLogin"
+    ],
+    'buttonLabelMessage' => 'discordauth-login-button-label'
+];
+
+$wgDiscordAuthBotToken = getenv('DISCORD_BOT_TOKEN');
+$wgDiscordGuildId = getenv('DISCORD_GUILD_ID');
+# $wgDiscordApprovedRoles = ['<role>']; // Only users with the specified roles will be able to login
+*/

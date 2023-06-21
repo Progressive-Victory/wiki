@@ -61,7 +61,13 @@ RUN chmod a+x /usr/local/bin/download-extension
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
+COPY ./clone-extension.sh /usr/local/bin/clone-extension
+RUN chmod a+x /usr/local/bin/clone-extension
+
 COPY ./composer.json $WIKI_DIR/composer.json
 RUN chmod a+w $WIKI_DIR/composer.json
+
+# authenticity of host 'github.com can't be established
+RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
