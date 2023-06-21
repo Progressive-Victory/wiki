@@ -16,7 +16,7 @@ add-mw-extension 1.39 /var/www/html Nuke Scribunto \
     CiteThisPage ContentTranslation CodeEditor CodeMirror \
     CategoryTree CharInsert Kartographer LabeledSectionTransclusion Poem \
     Score VipsScaler GettingStarted PageImages AdvancedSearch \
-    ArticleCreationWorkflow Disambiguator DismissableSiteNotice FileExporter \
+    ArticleCreationWorkflow Disambiguator DismissableSiteNotice \
     MultimediaViewer PageViewInfo SandboxLink WikiLove \
     PagedTiffHandler TextExtracts PageAssessments Linter TemplateData \
     OATHAuth Cite Gadgets AbuseFilter ParserFunctions SyntaxHighlight_GeSHi SpamBlacklist InputBox PdfHandler WikiEditor ImageMap \

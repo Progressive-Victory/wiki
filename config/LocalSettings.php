@@ -166,7 +166,6 @@ wfLoadExtension( 'DismissableSiteNotice' );
 wfLoadExtension( 'CleanChanges' );
 wfLoadExtension( 'LocalisationUpdate' );
 wfLoadExtension( 'UniversalLanguageSelector' );
-wfLoadExtension( 'FileExporter' );
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension( 'OATHAuth' );
 wfLoadExtension( 'Scribunto' );
