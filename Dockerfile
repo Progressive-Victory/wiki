@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     jq \
     build-essential \
-     # for Timeline ext
+    # Required for Timeline ext
     fonts-freefont-ttf \
     # ttf-unifont \
     fonts-unifont \
@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
     texlive-lang-greek \
     texlive-latex-recommended \
     texlive-latex-extra \
-    # Ruired for Scribunto
+    # Required for Scribunto
     lua5.1 \
     # Required for SyntaxHighlighting
     python3 \
@@ -67,7 +67,14 @@ RUN chmod a+x /usr/local/bin/clone-extension
 COPY ./composer.json $WIKI_DIR/composer.json
 RUN chmod a+w $WIKI_DIR/composer.json
 
-# authenticity of host 'github.com can't be established
-RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
+# Add github.com to known_hosts
+RUN mkdir -p ~/.ssh && \
+    chmod 700 ~/.ssh && \
+    ssh-keyscan github.com >> ~/.ssh/known_hosts && \
+    chmod 644 ~/.ssh/known_hosts
+
+# Install custom fonts
+COPY ./fonts /usr/share/fonts
+RUN install -m644 /usr/share/fonts/Montserrat-VariableFont_wght.ttf /usr/share/fonts/Monsterrat
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
