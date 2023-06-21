@@ -28,6 +28,7 @@ download-extension UploadWizard REL1_39
 download-extension TimedMediaHandler REL1_39
 download-extension JsonConfig REL1_39
 download-extension TemplateWizard REL1_39
+download-extension YouTube REL1_39
 
 if [ ! -d "/var/www/html/extensions/LabeledSectionTransclusion" ]; then
     git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git /var/www/html/extensions/LabeledSectionTransclusion
@@ -40,9 +41,6 @@ fi
 if [ ! -d "/var/www/html/extensions/HTMLTags" ]; then
     git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git /var/www/html/extensions/HTMLTags
 fi
-
-# TODO: https://www.mediawiki.org/wiki/Special:ExtensionDistributor/YouTube - this isn't downloading
-# download-extension Youtube https://extdist.wmflabs.org/dist/extensions/YouTube-REL1_39-28a05a9.tar.gz
 
 echo "Updating composer..."
 

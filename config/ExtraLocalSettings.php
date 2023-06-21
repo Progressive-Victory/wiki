@@ -52,8 +52,10 @@ $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$s
 	return true;
 };
 
+$wgAllowExternalImages = true;
+
 # HTMLTag Configuration
-$wgHTMLTagsAttributes['a'] = [ 'href', 'class' ];
+# $wgHTMLTagsAttributes['a'] = [ 'href', 'class' ];
 $wgHTMLTagsAttributes['p'] = [ 'class' ];
 $wgHTMLTagsAttributes['div'] = [ 'class' ];
 $wgHTMLTagsAttributes['span'] = [ 'class' ];
@@ -77,4 +79,3 @@ $wgHTMLTagsAttributes['tfoot'] = [ 'class' ];
 $wgHTMLTagsAttributes['pre'] = [ 'class' ];
 $wgHTMLTagsAttributes['code'] = [ 'class' ];
 $wgHTMLTagsAttributes['footer'] = [ 'class' ];
-$wgHTMLTagsAttributes['img'] = [ 'src', 'class' ];

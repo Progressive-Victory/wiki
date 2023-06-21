@@ -195,13 +195,14 @@ wfLoadExtension( 'cldr' );
 wfLoadExtension( 'Bootstrap' );
 wfLoadExtension( 'HTMLTags' );
 wfLoadExtension( 'BootstrapComponents' );
+wfLoadExtension( 'YouTube' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 
 wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
 
+# Compatibility Errors, can probably resolved with a small amount of effort
 # wfLoadExtension( 'TorBlock' );
-
 # wfLoadExtension( 'timeline' );
 # wfLoadExtension( 'Echo' );
 # wfLoadExtension( 'Thanks' );
@@ -209,14 +210,15 @@ wfLoadExtension( 'Parsoid', "$IP/vendor/wikimedia/parsoid/extension.json" );
 # wfLoadExtension( 'TemplateSandbox' );
 # wfLoadExtension( 'CodeMirror' );
 # wfLoadExtension( 'Kartographer' );
-# wfLoadExtension( 'Translate' ); # Causes DB Error
-# wfLoadExtension( 'Youtube' );
 # wfLoadExtension( 'MobileFrontend' );
 # wfLoadExtension( 'GeoData' );
 # wfLoadExtension( 'AdvancedSearch' );
 # wfLoadExtension( 'Score' );
 # wfLoadExtension( 'Disambiguator' );
 # wfLoadExtension( 'WikiLove' );
+
+# More annoying errors, could be missing migrations or configuration to cause the errors
+# wfLoadExtension( 'Translate' ); # Causes DB Error
 # wfLoadExtension( 'GettingStarted' ); # Causes json_decode() warning on index page
 # wfLoadExtension( 'Babel' ); # Causes DB error after logging in
 # wfLoadExtension( 'TitleKey' ); # Causes DB error when searching
