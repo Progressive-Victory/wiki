@@ -103,4 +103,5 @@ $wgDiscordGuildId = getenv('DISCORD_GUILD_ID');
 # $wgDiscordApprovedRoles = ['<role>']; // Only users with the specified roles will be able to login
 */
 
-$wgUserrightsInterwikiDelimiter = '#';
+$wgUserrightsInterwikiDelimiter = '@';
+$wgGroupPermissions['bureaucrat']['userrights-interwiki'] = true;
