@@ -192,6 +192,7 @@ wfLoadExtension( 'HTMLTags' );
 wfLoadExtension( 'BootstrapComponents' );
 wfLoadExtension( 'YouTube' );
 wfLoadExtension( 'Discord' );
+wfLoadExtension( 'EmbedVideo' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 

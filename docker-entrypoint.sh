@@ -35,6 +35,7 @@ clone-extension SimpleEmbed https://github.com/Le-onardo/SimpleEmbed.git
 clone-extension HTMLTags https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git
 clone-extension Discord https://github.com/jayktaylor/mw-discord.git -b REL1_38
 # clone-extension DiscordAuth https://github.com/shroomok/mediawiki-DiscordAuth.git
+clone-extension EmbedVideo https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo.git
 
 echo "Updating composer..."
 
