@@ -85,7 +85,7 @@ $wgHTMLTagsAttributes['nav'] = [ 'class', 'style' ];
 $wgHTMLTagsAttributes['section'] = [ 'class', 'style' ];
 $wgHTMLTagsAttributes['style'] = [ ];
 
-$wgAllowExternalImagesFrom = ['https://i.ytimg/'];
+$wgAllowExternalImagesFrom = ['https://i.ytimg', 'https://scontent-hou1-1.cdninstagram.com'];
 $wgAllowExternalImages = true;
 
 $wgDiscordWebhookURL = [ getenv('DISCORD_UPDATE_HOOK') ?? '' ];
