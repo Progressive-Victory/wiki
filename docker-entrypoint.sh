@@ -47,6 +47,9 @@ rm -rf vendor/*
 
 php /var/www/html/maintenance/update.php
 
+chmod a+w /var/www/html/extensions/Widgets/compiled_templates/
+chgrp www-data /var/www/html/extensions/Widgets/compiled_templates/
+
 echo "Finished preparing mediawiki!"
 
 apache2-foreground "$@"

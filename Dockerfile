@@ -67,9 +67,6 @@ RUN chmod a+x /usr/local/bin/clone-extension
 COPY ./composer.json $WIKI_DIR/composer.json
 RUN chmod a+w $WIKI_DIR/composer.json
 
-RUN chmod a+w /var/www/html/extensions/Widgets/compiled_templates/
-RUN chgrp www-data /var/www/html/extensions/Widgets/compiled_templates/
-
 # Add github.com to known_hosts
 RUN mkdir -p ~/.ssh && \
     chmod 700 ~/.ssh && \
