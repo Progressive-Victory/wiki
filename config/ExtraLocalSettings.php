@@ -56,7 +56,7 @@ $wgHooks['ParserAfterParse'][]=function( Parser &$parser, &$text, StripState &$s
 # $wgAllowImageTag = true;
 
 # HTMLTag Configuration
-# $wgHTMLTagsAttributes['a'] = [ 'href', 'class' ];
+$wgHTMLTagsAttributes['a'] = [ 'href', 'class' ];
 $wgHTMLTagsAttributes['p'] = [ 'class' ];
 $wgHTMLTagsAttributes['div'] = [ 'class' ];
 $wgHTMLTagsAttributes['span'] = [ 'class' ];
@@ -80,6 +80,10 @@ $wgHTMLTagsAttributes['tfoot'] = [ 'class' ];
 $wgHTMLTagsAttributes['pre'] = [ 'class' ];
 $wgHTMLTagsAttributes['code'] = [ 'class' ];
 $wgHTMLTagsAttributes['footer'] = [ 'class' ];
+$wgHTMLTagsAttributes['header'] = [ 'class' ];
+$wgHTMLTagsAttributes['nav'] = [ 'class' ];
+$wgHTMLTagsAttributes['section'] = [ 'class' ];
+$wgHTMLTagsAttributes['style'] = [ ];
 
 $wgDiscordWebhookURL = [ getenv('DISCORD_UPDATE_HOOK') ?? '' ];
 
