@@ -193,6 +193,8 @@ wfLoadExtension( 'BootstrapComponents' );
 wfLoadExtension( 'YouTube' );
 wfLoadExtension( 'Discord' );
 wfLoadExtension( 'EmbedVideo' );
+wfLoadExtension( 'Moderation' );
+wfLoadExtension( 'CategoryLockdown' );
 
 require_once "$IP/extensions/SimpleEmbed/SimpleEmbed.php";
 

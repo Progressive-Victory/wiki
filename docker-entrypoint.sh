@@ -20,7 +20,7 @@ add-mw-extension 1.39 /var/www/html Nuke Scribunto \
     MultimediaViewer PageViewInfo SandboxLink WikiLove \
     PagedTiffHandler TextExtracts PageAssessments Linter TemplateData \
     OATHAuth Cite Gadgets AbuseFilter ParserFunctions SyntaxHighlight_GeSHi SpamBlacklist InputBox PdfHandler WikiEditor ImageMap \
-    CookieWarning PluggableAuth WSOAuth
+    CookieWarning PluggableAuth WSOAuth CategoryLockdown
 
 download-extension Lockdown REL1_39
 download-extension TemplateSandbox REL1_39
@@ -36,6 +36,7 @@ clone-extension HTMLTags https://gerrit.wikimedia.org/r/mediawiki/extensions/HTM
 clone-extension Discord https://github.com/jayktaylor/mw-discord.git -b REL1_38
 # clone-extension DiscordAuth https://github.com/shroomok/mediawiki-DiscordAuth.git
 clone-extension EmbedVideo https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo.git
+clone-extension Moderation https://github.com/edwardspec/mediawiki-moderation.git
 
 echo "Updating composer..."
 
@@ -49,6 +50,10 @@ php /var/www/html/maintenance/update.php
 
 chmod a+w /var/www/html/extensions/Widgets/compiled_templates/
 chgrp www-data /var/www/html/extensions/Widgets/compiled_templates/
+
+# $ getconf LONG_BIT
+chmod a+x /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
+chcon -t httpd_sys_script_exec_t /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
 
 echo "Finished preparing mediawiki!"
 
