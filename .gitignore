@@ -2,3 +2,5 @@
 !/nginx/certs/hold
 .env
 node_modules
+vendor
+extensions
