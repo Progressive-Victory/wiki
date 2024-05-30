@@ -24,6 +24,9 @@ services:
       MW_SITE_SERVER: ${MW_SITE_SERVER:-https://localhost}
       MW_SITE_NAME: ${MW_SITE_NAME:-Progressive Victory Wiki}
       MW_SITE_LANG: en
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
   db:
     image: mysql:5.7
@@ -43,6 +46,9 @@ services:
       - ./nginx/certs:/etc/nginx/certs
     depends_on:
       - mediawiki
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 
 volumes:
   mediawiki_data:
