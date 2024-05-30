@@ -31,7 +31,7 @@ download-extension TemplateWizard REL1_39
 download-extension YouTube REL1_39
 
 clone-extension LabeledSectionTransclusion https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git
-clone-extension SimpleEmbed https://github.com/Le-onardo/SimpleEmbed.git
+clone-extension SimpleEmbed https://github.com/Le-onardo/SimpleEmbed.git -b main
 clone-extension HTMLTags https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git
 clone-extension Discord https://github.com/jayktaylor/mw-discord.git -b REL1_38
 # clone-extension DiscordAuth https://github.com/shroomok/mediawiki-DiscordAuth.git
