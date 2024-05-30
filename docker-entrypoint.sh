@@ -18,7 +18,7 @@ add-mw-extension 1.39 /var/www/html Nuke Scribunto \
     Score VipsScaler GettingStarted PageImages AdvancedSearch \
     ArticleCreationWorkflow Disambiguator DismissableSiteNotice \
     MultimediaViewer PageViewInfo SandboxLink WikiLove \
-    PagedTiffHandler TextExtracts PageAssessments Linter TemplateData \
+    PagedTiffHandler TextExtracts PageAssessments Linter TemplateData HTMLTags \
     OATHAuth Cite Gadgets AbuseFilter ParserFunctions SyntaxHighlight_GeSHi SpamBlacklist InputBox PdfHandler WikiEditor ImageMap \
     CookieWarning PluggableAuth WSOAuth CategoryLockdown
 
@@ -29,14 +29,48 @@ download-extension TimedMediaHandler REL1_39
 download-extension JsonConfig REL1_39
 download-extension TemplateWizard REL1_39
 download-extension YouTube REL1_39
+download-extension CookieWarning REL1_39
+download-extension DismissableSiteNotice REL1_39
+download-extension VipsScaler REL1_39
+download-extension ArticleCreationWorkflow REL1_39
+download-extension PageViewInfo REL1_39
+download-extension LocalisationUpdate REL1_39
+download-extension SandboxLink REL1_39
+download-extension CategoryLockdown REL1_39
 
-clone-extension LabeledSectionTransclusion https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git
-clone-extension SimpleEmbed https://github.com/Le-onardo/SimpleEmbed.git -b main
-clone-extension HTMLTags https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git
+rm -rf /var/www/html/extensions/HTMLTags
+rm -rf /var/www/html/extensions/TemplateStyles
+rm -rf /var/www/html/extensions/LabeledSectionTransclusion
+rm -rf /var/www/html/extensions/RSS
+rm -rf /var/www/html/extensions/CharInsert
+rm -rf /var/www/html/extensions/wikihiero
+rm -rf /var/www/html/extensions/UniversalLanguageSelector
+rm -rf /var/www/html/extensions/LabeledSectionTransclusion
+
+download-extension HTMLTags REL1_39
+download-extension TemplateStyles REL1_39
+download-extension RSS REL1_39
+download-extension CharInsert REL1_39
+download-extension wikihiero REL1_39
+download-extension UniversalLanguageSelector REL1_39
+download-extension LabeledSectionTransclusion REL1_39
+# git clone  https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git /var/www/html/extensions/HTMLTags
+
+rm -rf /var/www/html/extensions/SimpleEmbed
+git clone https://github.com/Le-onardo/SimpleEmbed.git /var/www/html/extensions/SimpleEmbed
+
+# clone-extension LabeledSectionTransclusion https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git -b REL1_39
 clone-extension Discord https://github.com/jayktaylor/mw-discord.git -b REL1_38
 # clone-extension DiscordAuth https://github.com/shroomok/mediawiki-DiscordAuth.git
 clone-extension EmbedVideo https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo.git
 clone-extension Moderation https://github.com/edwardspec/mediawiki-moderation.git
+
+for ext in HTMLTags; do
+    if [ ! -f "/var/www/html/extensions/$ext/extension.json" ]; then
+        echo "Error: /var/www/html/extensions/$ext/extension.json not found"
+        exit 1
+    fi
+done
 
 echo "Updating composer..."
 
@@ -53,7 +87,7 @@ chgrp www-data /var/www/html/extensions/Widgets/compiled_templates/
 
 # $ getconf LONG_BIT
 chmod a+x /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
-chcon -t httpd_sys_script_exec_t /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
+# chcon -t httpd_sys_script_exec_t /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
 
 echo "Finished preparing mediawiki!"
 
