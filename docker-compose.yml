@@ -46,9 +46,6 @@ services:
       - ./nginx/certs:/etc/nginx/certs
     depends_on:
       - mediawiki
-    dns:
-      - 8.8.8.8
-      - 8.8.4.4
 
 volumes:
   mediawiki_data:
