@@ -87,7 +87,7 @@ chgrp www-data /var/www/html/extensions/Widgets/compiled_templates/
 
 # $ getconf LONG_BIT
 chmod a+x /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
-chcon -t httpd_sys_script_exec_t /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
+# chcon -t httpd_sys_script_exec_t /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
 
 echo "Finished preparing mediawiki!"
 
