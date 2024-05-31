@@ -5,6 +5,9 @@ until mysqladmin ping -hdb -uroot -p${DB_PASSWORD:-root} --silent; do
     sleep 2
 done
 
+# Set the ServerName directive to suppress Apache warning
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 chown www-data:www-data /var/www/html/LocalSettings.php
 chmod 644 /var/www/html/LocalSettings.php
 
@@ -38,14 +41,14 @@ download-extension LocalisationUpdate REL1_39
 download-extension SandboxLink REL1_39
 download-extension CategoryLockdown REL1_39
 
-rm -rf /var/www/html/extensions/HTMLTags
-rm -rf /var/www/html/extensions/TemplateStyles
-rm -rf /var/www/html/extensions/LabeledSectionTransclusion
-rm -rf /var/www/html/extensions/RSS
-rm -rf /var/www/html/extensions/CharInsert
-rm -rf /var/www/html/extensions/wikihiero
-rm -rf /var/www/html/extensions/UniversalLanguageSelector
-rm -rf /var/www/html/extensions/LabeledSectionTransclusion
+# rm -rf /var/www/html/extensions/HTMLTags
+# rm -rf /var/www/html/extensions/TemplateStyles
+# rm -rf /var/www/html/extensions/LabeledSectionTransclusion
+# rm -rf /var/www/html/extensions/RSS
+# rm -rf /var/www/html/extensions/CharInsert
+# rm -rf /var/www/html/extensions/wikihiero
+# rm -rf /var/www/html/extensions/UniversalLanguageSelector
+# rm -rf /var/www/html/extensions/LabeledSectionTransclusion
 
 download-extension HTMLTags REL1_39
 download-extension TemplateStyles REL1_39
@@ -56,7 +59,7 @@ download-extension UniversalLanguageSelector REL1_39
 download-extension LabeledSectionTransclusion REL1_39
 # git clone  https://gerrit.wikimedia.org/r/mediawiki/extensions/HTMLTags.git /var/www/html/extensions/HTMLTags
 
-rm -rf /var/www/html/extensions/SimpleEmbed
+# rm -rf /var/www/html/extensions/SimpleEmbed
 git clone https://github.com/Le-onardo/SimpleEmbed.git /var/www/html/extensions/SimpleEmbed
 
 # clone-extension LabeledSectionTransclusion https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion.git -b REL1_39
